@@ -1,3 +1,4 @@
+from backpack import Backpack
 from customer import Customer
 from soda_machine import SodaMachine
 import user_interface
@@ -9,7 +10,8 @@ class Simulation:
     def run_simulation(self):
         """The central method called in main.py."""
         customer = Customer()
-        soda_machine = SodaMachine()        
+        soda_machine = SodaMachine()  
+        backpack= Backpack()      
         will_proceed = True
         while will_proceed:
             user_option = user_interface.simulation_main_menu()
@@ -18,6 +20,6 @@ class Simulation:
             elif user_option == 2:
                 customer.check_coins_in_wallet()
             elif user_option == 3:
-                customer.check_backpack()
+                customer.check_backpack(backpack)
             else:
                 will_proceed = False
