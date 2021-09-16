@@ -6,6 +6,7 @@ class SodaMachine:
     def __init__(self):
         self.register = []
         self.inventory = []
+        self.fill_inventory()
 
     def fill_register(self):
         """Method will fill SodaMachine's register with certain amounts of each coin when called."""
@@ -37,7 +38,7 @@ class SodaMachine:
 
         selected_soda_name = user_interface.soda_selection(self.inventory)
 
-        selected_soda = self.get_inventory_soda(selected_soda_name)
+        selected_soda_name = self.get_inventory_soda(selected_soda_name)
 
         customer_payment = customer.gather_coins_from_wallet(selected_soda_name)
 
@@ -96,7 +97,7 @@ class SodaMachine:
     def get_coin_from_register(self, coin_name):
         """Removes and returns a coin from register"""
         for coin in self.register:
-            if coin.name == "coin_name":
+            if coin_name == "coin_name":
                 self.register.remove(coin)
                 return coin
         return None
